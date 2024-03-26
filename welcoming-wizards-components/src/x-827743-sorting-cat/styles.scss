@@ -1,0 +1,51 @@
+@import '@servicenow/sass-kit/host';
+
+@import url('https://fonts.googleapis.com/css?family=Pirata+One|Bilbo+Swash+Caps&display=swap');
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.75);
+    opacity: 0.75;
+  }
+}
+
+.sortingCat {
+
+  .catImage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      max-width: 250px;
+
+      &.anmiate {
+        animation: pulse-animation 1s linear infinite alternate;
+      }
+    }
+  }
+
+  .sortingText {
+    text-align: center;
+
+    &.houseText {
+      margin: 0.5rem 0 0 0;
+      font-size: 3rem;
+      font-family: 'Bilbo Swash Caps', cursive;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+  }
+
+  .sortBtn {
+    margin: 2rem 0 0 0;
+    display: flex;
+    justify-content: center;
+  }
+}

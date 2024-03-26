@@ -1,4 +1,54 @@
 {
-  "components": {},
+  "components": {
+    "x-827743-sorting-cat": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "Sorting Cat",
+        "icon": "document-outline",
+        "description": "Sorts Wizarding Students into Pigwarts Houses",
+        "category": "primitives"
+      },
+      "properties": [
+        {
+          "name": "houses",
+          "label": "Houses",
+          "required": true,
+          "readOnly": false,
+          "fieldType": "list",
+          "defaultValue": [],
+          "description": "A list of the houses for the sorting cat to choose from"
+        },
+        {
+          "name": "student",
+          "label": "Student",
+          "required": true,
+          "readOnly": false,
+          "fieldType": "json",
+          "defaultValue": null,
+          "description": "The student being sorted into a house"
+        }
+      ],
+      "actions": [
+        {
+          "name": "SORTING_CAT#HOUSE_SELECTED",
+          "label": "House Selected",
+          "description": "A house was selected by the sorting cat",
+          "payload": [
+            {
+              "name": "house",
+              "label": "House",
+              "description": "The house that the sorting cat selected",
+              "fieldType": "object",
+              "valueType": "object"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "scopeName": "x_827743_welcwiz"
 }
