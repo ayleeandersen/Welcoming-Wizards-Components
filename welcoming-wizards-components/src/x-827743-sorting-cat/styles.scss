@@ -15,37 +15,40 @@
 
 .sortingCat {
 
-  .catImage {
+  .body {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+  }
 
-    img {
-      width: 100%;
-      height: 100%;
-      max-width: 250px;
+  .catImage {
+    width: 100%;
+    height: 100%;
+    max-width: 250px;
 
-      &.anmiate {
-        animation: pulse-animation 1s linear infinite alternate;
-      }
+    &.anmiate {
+      animation: pulse-animation 1s linear infinite alternate;
     }
   }
 
   .sortingText {
+    margin: 0;
     text-align: center;
+    font-style: var(--now-heading--header-secondary--font-style,var(--now-display-type--secondary--font-style,var(--now-display-type--font-style,normal)));
+    font-weight: var(--now-heading--header-secondary--font-weight,var(--now-display-type--secondary--font-weight,var(--now-display-type--font-weight,normal)));
+    font-size: 24px;
+    font-family: var(--now-heading--header-secondary--font-family,var(--now-display-type--secondary--font-family,var(--now-display-type--font-family,var(--now-font-family,"Source Sans Pro",Arial,sans-serif))));
+    color: RGB(var(--now-heading--header-secondary--color,var(--now-color_text--secondary,var(--now-color--neutral-15,44,53,55))));
+  }
 
-    &.houseText {
-      margin: 0.5rem 0 0 0;
-      font-size: 3rem;
-      font-family: 'Bilbo Swash Caps', cursive;
-      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    }
+  .houseText {
+    margin: 0.5rem 0 0 0;
+    font-size: 3rem;
+    font-family: 'Bilbo Swash Caps', cursive;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   }
 
   .sortBtn {
     margin: 2rem 0 0 0;
-    display: flex;
-    justify-content: center;
   }
 }

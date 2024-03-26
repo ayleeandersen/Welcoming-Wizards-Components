@@ -28,27 +28,23 @@ createCustomElement('x-827743-sorting-cat', {
         return (
             <div className="sortingCat">
                 <now-heading label="Sorting Cat"></now-heading>
-                <div className="catImage">
-                    <img className={`${sorting ? 'anmiate' : ''}`} alt="Sorting Cat" src={cat} />
+                <div className="body">
+                    <img className={`catImage ${sorting ? 'anmiate' : ''}`} alt="Sorting Cat" src={cat} />
+                    <h2 className="sortingText">
+                        {`Sorting ${ student._row_data.displayValue } into...`}
+                    </h2>
+                    {(house || shuffleIndex >= 0) && (
+                        <h1 className="houseText" style={{ color: houseColor }}>
+                            { house ? house._row_data.displayValue : houses[shuffleIndex]._row_data.displayValue }
+                        </h1>
+                    )}
+                    <now-button
+                        className="sortBtn"
+                        label="Sort!"
+                        variant="primary"
+                        disabled={(sorting || house) ? true : false}
+                    ></now-button>
                 </div>
-                <now-heading
-                    className="sortingText"
-                    label={`Sorting ${ student._row_data.displayValue } into...`}
-                    variant="header-secondary"
-                    level="2"
-                    hasNoMargin={true}
-                ></now-heading>
-                {(house || shuffleIndex >= 0) && (
-                    <h1 className="houseText sortingText" style={{ color: houseColor }}>
-                        { house ? house._row_data.displayValue : houses[shuffleIndex]._row_data.displayValue }
-                    </h1>
-                )}
-                <now-button
-                    className="sortBtn"
-                    label="Sort!"
-                    variant="primary"
-                    disabled={(sorting || house) ? true : false}
-                ></now-button>
             </div>
         );
     },
