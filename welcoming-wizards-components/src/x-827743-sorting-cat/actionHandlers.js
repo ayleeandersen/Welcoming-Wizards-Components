@@ -1,3 +1,5 @@
+import { createCustomElement, actionTypes } from '@servicenow/ui-core';
+const { COMPONENT_PROPERTY_CHANGED } = actionTypes;
 
 export const actionHandlers = {
   /**
@@ -19,6 +21,14 @@ export const actionHandlers = {
    *    successActionType: 'USER_FETCH_SUCCESS'
    * })
    */
+  [COMPONENT_PROPERTY_CHANGED]: (coeffects) => {
+    const { updateState, action } = coeffects;
+    const { payload } = action;
+
+    if (payload.name == "student" && payload.previousValue && payload.value && payload.previousValue._row_data.uniqueValue != payload.value._row_data.uniqueValue) {
+      updateState({ sorting: false, house: null, shuffleIndex: -1 });
+    }
+  },
 
   'NOW_BUTTON#CLICKED': (coeffects) => {
     const { updateState, dispatch, state } = coeffects;
@@ -31,7 +41,7 @@ export const actionHandlers = {
     // Start "shuffling" through houses
     let newIndex = shuffleIndex;
     let newIntervalId = setInterval(() => {
-      newIndex = (newIndex + 1) % houses.length;
+      newIndex = (newIndex + 1) % (houses || []).length;
       updateState({ shuffleIndex: newIndex });
     }, 100);
 

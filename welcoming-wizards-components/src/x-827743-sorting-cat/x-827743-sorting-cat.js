@@ -18,16 +18,19 @@ createCustomElement('x-827743-sorting-cat', {
     view: (state, helpers) => {
         const { updateState, dispatch } = helpers;
         const { properties, sorting, house, shuffleIndex } = state;
-        const { houses, student } = properties;
+        const { houses, student, heading } = properties;
 
         let houseColor = "";
         if (house || (shuffleIndex >= 0 && houses.length > 0)) {
+            if (!houses[0].color._reference) {
+                console.error("Sorting Cat: Please be sure to add the color > color reference on the return values for the houses");
+            }
             houseColor = house ? house.color._reference.color.value : houses[shuffleIndex].color._reference.color.value;
         }
 
         return (
             <div className="sortingCat">
-                <now-heading label="Sorting Cat"></now-heading>
+                { heading && (<now-heading label={heading}></now-heading>) }
                 <div className="body">
                     <img className={`catImage ${sorting ? 'anmiate' : ''}`} alt="Sorting Cat" src={cat} />
                     <h2 className="sortingText">
@@ -54,6 +57,9 @@ createCustomElement('x-827743-sorting-cat', {
         },
         student: {
             default: null
+        },
+        heading: {
+            default: ""
         }
     },
     actionHandlers: {...actionHandlers},

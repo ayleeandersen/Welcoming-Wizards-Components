@@ -30,6 +30,15 @@
           "fieldType": "json",
           "defaultValue": null,
           "description": "The student being sorted into a house"
+        },
+        {
+          "name": "heading",
+          "label": "Heading",
+          "required": false,
+          "readOnly": false,
+          "fieldType": "string",
+          "defaultValue": "Sorting Cat",
+          "description": "The text to display in the heading"
         }
       ],
       "actions": [
